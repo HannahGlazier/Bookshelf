@@ -1,3 +1,21 @@
 body {
     background-color: green;
 }
+
+#book-bar {
+    height: 15vh;
+    background: skyblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #book-bar span {
+    height: 80%;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+    border: 1px solid blue;
+  }
