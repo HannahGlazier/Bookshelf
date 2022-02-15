@@ -18,12 +18,12 @@ function fetchBooks(){
   return fetch(`https://www.googleapis.com/books/v1/volumes?q=SecretHistory`)
   .then(response => (response.json()))
 }
-
-/// should we use typeOf() to check what we are using forEAch on????? 
+ 
 
 //Render Functions
-function renderAllBooks(bookArr){
-  bookArr.forEach(renderOneBook)
+function renderAllBooks(bookObj){
+   console.log(bookObj.items)
+ 
 }
 
 
@@ -43,9 +43,9 @@ function renderOneBook(bookObj){
 function renderBookDetail(bookObj){
 
 }
-// function submitForm(){
+function submitForm(){
 
-// }
+}
 
 
 // //Event Handlers 
@@ -53,7 +53,9 @@ function renderBookDetail(bookObj){
 
 
 // // Initializers 
-fetchBooks().then(bookArr => renderAllBooks(bookArr))
+fetchBooks().then(bookObj => renderAllBooks(bookObj))
+
+// .then(bookArr => renderAllBooks(bookArr))
 
 
 
