@@ -14,92 +14,95 @@ const bookBar = document.getElementById('book-bar')
 let colNine = document.querySelector('.col-9.detail')
 let colThree = document.querySelector('.col-3.master')
 let sideBarItem = document.querySelectorAll('.master-item')
+let masterItem = document.querySelector('.master-item.active-item')
 
 
 //Listeners
 
 
 // Fetchers
-function fetchBooks(){
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=LordOfTheRings`)
+function fetchBooks(searchInput){
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
   .then(response => (response.json()))
-  // .then(console.log)
 }
  
 
 //Render Functions
-function renderAllBooks(bookObj){
-  renderBookCard(bookObj.items)
+function renderAllBooks(mainBookObj){
+  mainBookObj.items.forEach(bookObj => renderBookCard(bookObj))
 }
 
 
 function renderBookCard(bookObj){
   
-  for (let i = 0; i < 10; i++){
-  
-  const authorH4 = document.createElement('h4')
-  authorH4.textContent = ` Author Name: ${(bookObj[i]["volumeInfo"]["authors"])}`
-  
-  const thumb = document.createElement('img')
-  thumb.src = bookObj[i]["volumeInfo"]["imageLinks"]["thumbnail"]
-  
-  const titleH3 = document.createElement('h3')
-  titleH3.innerText  = `Book Title: ${bookObj[i]["volumeInfo"]["title"]}`
+  let div = document.createElement('div')
+  div.classList.add('master-item')
 
+  let coverImg = document.createElement('img')
+  coverImg.src = bookObj["volumeInfo"]["imageLinks"]["thumbnail"]
 
+  div.append(coverImg)
+  colThree.appendChild(div)
 
-  //Making sidebar
-
- colThree.innerHTML = `
- <div class="master-item active-item"><img src=${bookObj[0]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[1]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div>
- <div class="master-item" ><img src=${bookObj[2]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[3]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[4]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[5]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[6]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div>
- <div class="master-item" ><img src=${bookObj[7]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[8]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div> 
- <div class="master-item" ><img src=${bookObj[9]["volumeInfo"]["imageLinks"]["thumbnail"]}/></div>   
- `
-
- //Making selector
-
- 
-
-
-  //Likes Button
-  const likesBttn = document.createElement('button')
-  let likesCount = document.createElement('span')
-  likesBttn.textContent = '♥'
-  likesCount.textContent = 'Likes: '
-  likesBttn.addEventListener('click', () => {
-    likesCount.textContent = ++bookObj.likes // maybe need to define 'likes'
+  div.addEventListener('click', () => {
+    renderDetail(bookObj)
   })
 
+//   //Likes Button
+//   const likesBttn = document.createElement('button')
+//   let likesCount = document.createElement('span')
+//   likesBttn.textContent = '♥'
+//   likesCount.textContent = 'Likes: '
+//   likesBttn.addEventListener('click', () => {
+//     likesCount.textContent = ++bookObj.likes // maybe need to define 'likes'
+//   })
 
+}
 
- title.append(titleH3, authorH4, thumb, likesBttn, likesCount) 
- colNine.append(title)
- //titleH3, authorH4, thumb, likesBttn, likesCount
+function renderDetail(bookObj){
+  colNine.innerHTML = " "
 
+  const authorH4 = document.createElement('h4')
+  authorH4.textContent = ` Author Name: ${(bookObj["volumeInfo"]["authors"])}`
+  
+  const thumb = document.createElement('img')
+  thumb.src = bookObj["volumeInfo"]["imageLinks"]["thumbnail"]
+  
+  const titleH3 = document.createElement('h3')
+  titleH3.innerText  = `Book Title: ${bookObj["volumeInfo"]["title"]}`
+
+  const likesBttn = document.createElement('button')
+//   let likesCount = document.createElement('span')
+//   likesBttn.textContent = '♥'
+//   likesCount.textContent = 'Likes: '
+//   likesBttn.addEventListener('click', () => {
+//     likesCount.textContent = ++bookObj.likes // maybe need to define 'likes'
+
+  colNine.append(authorH4, thumb, titleH3)
+ }
  
-}}
 
-
-// function renderDetail(bookObj){
-//   colThree.addEventListener('click', ()=>{
-//   }) 
-// }
-//   colNine = colThree.innerHTML
-
-
-
-// function renderSideBar(bookObj){
-//   colThree.innerHTML =  `<div class="master-item" onclick="select(this)"><img src ='${bookObj[0]["volumeInfo"]["imageLinks"]}'></div> `
-// }
 
 // //Event Handlers 
+
+
+
+// // Initializers 
+fetchBooks('Harry Potter').then(bookObj => {
+  renderAllBooks(bookObj)
+  renderDetail(bookObj.items[0])
+})
+
+
+
+// Posible endpoints 
+//https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=AIzaSyD0p5CvqgLLo1tlpljQoUJly-4aTkXI_bE
+// `https://www.googleapis.com/books/v1/volumes?q=SecretHistory`
+
+
+
+
+
 
 
 
@@ -134,25 +137,3 @@ function renderBookCard(bookObj){
 //     }
 //     detail.classList.add('hidden-md-down');
 // }
-
-
-
-
-
-
-// // Initializers 
-fetchBooks().then(bookObj => renderAllBooks(bookObj))
-
-
-
-
-
-// Posible endpoints 
-//https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=AIzaSyD0p5CvqgLLo1tlpljQoUJly-4aTkXI_bE
-// `https://www.googleapis.com/books/v1/volumes?q=SecretHistory`
-
-
-
-
-
-
