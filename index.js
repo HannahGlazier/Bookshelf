@@ -3,16 +3,14 @@ let baseURL = `https://www.googleapis.com/books/v1/volumes?q=`
 let selectedBook;
 
 //Containers
-// const container  = document.querySelector(".container-fluid") //BD -added for .append purposes
+
 let author = document.querySelector('.author')
 let title = document.querySelector('.title')
-// let thumbnail = document.querySelector('.img-thumbnail')
+let thumbnail = document.querySelector('.img-thumbnail')
 const bookCard = document.createElement('div')
 const bookBar = document.getElementById('book-bar')
 let colNine = document.querySelector('.col-9.detail')
 let colThree = document.querySelector('.col-3.master')
-// let sideBarItem = document.querySelectorAll('.master-item')
-// let masterItem = document.querySelector('.master-item.active-item')
 let likeSpan = document.createElement('span')
 let searchInput = document.querySelector('#search_book')
 let searchForm = document.getElementById('search-form')
@@ -63,7 +61,7 @@ function renderDetail(bookObj){
   authorH4.textContent = ` Author Name: ${(bookObj["volumeInfo"]["authors"])}`
   
   const thumb = document.createElement('img')
-  thumb.src = bookObj["volumeInfo"]["imageLinks"]["thumbnail"]
+  thumb.src = bookObj["volumeInfo"]["imageLinks"]["thumbnail"] || ' '
   
   const titleH3 = document.createElement('h3')
   titleH3.innerText  = `Book Title: ${bookObj["volumeInfo"]["title"]}`
@@ -116,7 +114,6 @@ function handleReviews(e){
 
   e.target.reset()
 }
-
 
 
 // // Initializers 
