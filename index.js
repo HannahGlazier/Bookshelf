@@ -3,7 +3,7 @@ let baseURL = `https://www.googleapis.com/books/v1/volumes?q=`
 let selectedBook;
 
 //Containers
-const container  = document.querySelector(".container-fluid") //BD -added for .append purposes
+// const container  = document.querySelector(".container-fluid") //BD -added for .append purposes
 let author = document.querySelector('.author')
 let title = document.querySelector('.title')
 // let thumbnail = document.querySelector('.img-thumbnail')
@@ -11,18 +11,18 @@ const bookCard = document.createElement('div')
 const bookBar = document.getElementById('book-bar')
 let colNine = document.querySelector('.col-9.detail')
 let colThree = document.querySelector('.col-3.master')
-let sideBarItem = document.querySelectorAll('.master-item')
-let masterItem = document.querySelector('.master-item.active-item')
+// let sideBarItem = document.querySelectorAll('.master-item')
+// let masterItem = document.querySelector('.master-item.active-item')
 let likeSpan = document.createElement('span')
 let searchInput = document.querySelector('#search_book')
-let form = document.getElementById('form-container')
+let searchForm = document.getElementById('search-form')
 const reviewForm = document.getElementById('review-form')
 let reviewInput = document.getElementById('review-input')
 let reviewH4 = document.createElement('h4')
 likeSpan.type = "Number"
 
 //Listeners
-form.addEventListener('submit', handleSearch)
+searchForm.addEventListener('submit', handleSearch)
 reviewForm.addEventListener('submit', handleReviews)
 
 // Fetchers
