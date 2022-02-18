@@ -64,51 +64,18 @@
     position: relative;
 }
 
-/* #back-btn {
-    color: #4CD4B0;
-    border: 1px solid #4CD4B0;
-    background: white;
-    border-radius: 5px;
-    padding: 5px 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#back-btn:hover {
-    cursor: pointer;
-    color: white;
-    background: #4CD4B0;
-} */
-
-
-/* For 786 and above: */
 @media only screen and (min-width: 768px) {
-   
-    /* .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;} */
     .col-3 {width: 25%;}
-    /* .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;} */
     .col-9 {width: 75%;}
-    /* .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;} */
-
     .hidden-md {
         display: none;
     }
-
     .detail {
         position: static;
     }
-
-    .master{
+    /* .master{
         border-right: 3px solid #FFFFFF;
-    }
+    } */
 }
 
 /* Hannahs tester CSS */
@@ -146,29 +113,17 @@ form{
     font-size: 16px;
     font-weight: 300 ;
     color: #333;
-    line-height: 1.625;
-     
+    line-height: 3;
+    text-align: center;
+
     background-color: #fff;
-    
+    opacity: .9;
 
     background-repeat: no-repeat;
     background-position: 95% 50%;
      
-    border: 1px solid #eee;
-    border-radius: 4px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    border-width: thin;
      
-    width: 100% 
-    padding: 15px;
-    cursor: auto;
 }
-
-
-  
-  /* form h4 {
-    width: 100%;
-    padding: 0.25rem;
-    margin: 0.5rem 0;
-    color: white;
-    background-color: black;
-  }
-  */

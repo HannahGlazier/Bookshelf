@@ -19,7 +19,7 @@ let form = document.getElementById('form-container')
 const reviewForm = document.getElementById('review-form')
 let reviewInput = document.getElementById('review-input')
 let reviewH4 = document.createElement('h4')
-
+likeSpan.type = "Number"
 
 //Listeners
 form.addEventListener('submit', handleSearch)
@@ -117,41 +117,10 @@ function handleReviews(e){
   e.target.reset()
 }
 
-// function handleAddRamen(e){
-//   e.preventDefault()
-//   // console.log('e: ', e.target);
-//   // console.dir(e.target)
-//   const name = e.target.name.value
-//   const restaurant = e.target.restaurant.value
-//   const image = e.target.image.value
-//   const rating = e.target.rating.value
-//   const comment = e.target["new-comment"].value
-//   const newRamObj = {
-//       name,
-//       image,
-//       restaurant,
-//       rating,
-//       comment
-//   }
-//   postRamen(newRamObj).then(serverRamObj => renderOneMenu(serverRamObj))
-//   // renderOneMenu(newRamObj)
-//   // form.reset()
-//   e.target.reset()
-// }
+
 
 // // Initializers 
 fetchBooks('JavaScript').then(bookObj => {
   renderAllBooks(bookObj)
   renderDetail(bookObj.items[0])
 })
-
-
-
-// function handleReviews(e){
-//   e.preventDefault()
-
-//   console.log(reviewForm)
-//   pReview.textContent = `Reviews: ${reviewInput.value}`
-
-//   e.target.reset()
-// }
