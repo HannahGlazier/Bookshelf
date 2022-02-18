@@ -18,7 +18,8 @@ let searchInput = document.querySelector('#search_book')
 let form = document.getElementById('form-container')
 const reviewForm = document.getElementById('review-form')
 let reviewInput = document.getElementById('review-input')
-let pReview = document.createElement('p')
+let reviewH4 = document.createElement('h4')
+
 
 //Listeners
 form.addEventListener('submit', handleSearch)
@@ -76,16 +77,16 @@ function renderDetail(bookObj){
 
   likeSpan.textContent = '0'
   
-  pReview.textContent = 'Reviews: '
+  reviewH4.textContent = 'Reviews: '
 
-  colNine.append(titleH3, authorH4, thumb, descriptionP, pReview, likesBttn, likeSpan) 
+  colNine.append(titleH3, authorH4, thumb, descriptionP, reviewH4, likesBttn, likeSpan) 
 }
 
 function increaseLike(){
 
   let likes = Number(likeSpan.textContent)
   likes.innerHTML = " "
-  likeSpan.textContent = ++likes
+  likeSpan.textContent = '  ' + ++likes
   colNine.append(likeSpan)
 
 }
@@ -109,8 +110,9 @@ function handleReviews(e){
 function handleReviews(e){
   e.preventDefault()
 
-  pReview.textContent = `Reviews: ${reviewInput.value}`
-  
+  let reviewLi = document.createElement('li')
+  reviewLi.textContent = `${reviewInput.value}`
+  reviewH4.append(reviewLi)
 
   e.target.reset()
 }
@@ -135,7 +137,7 @@ function handleReviews(e){
 //   // renderOneMenu(newRamObj)
 //   // form.reset()
 //   e.target.reset()
-}
+// }
 
 // // Initializers 
 fetchBooks('JavaScript').then(bookObj => {
