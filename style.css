@@ -1,3 +1,128 @@
-body {
-    background-color: green;
+
+.title {
+    font-family: impact ;
+    font-size: 50px;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    padding: 1px;
+    color: white;
+    
+}
+.master-item {
+    font-size: 24px;
+    border-bottom: 5px solid #FFFFFF;
+    padding: 5px;   
+    color:#FFFFFF; 
+}
+
+.text-center {
+    text-align: center;
+}
+.master-item:hover, .active-item {
+    background: url("https://images.unsplash.com/photo-1603484477859-abe6a73f9366?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+    color: white;
+    cursor: pointer
+}
+
+.master {
+    padding: 25px;
+    border:none;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.hidden-md {
+    display: inline
+}
+
+.hidden-md-down {
+    display:none
+}
+
+/* For phones: */
+[class*="col-"] {
+    width: 100%;
+    float: left;
+}
+
+.detail{
+    font-size: 25px;
+    font-family: 'Courier Prime', monospace;
+    text-shadow: 2px 2px 80px #000000;
+    padding: 25px;
+    box-sizing: border-box;
+    position: static;
+    z-index: 11;
+    color: black;
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1603484477859-abe6a73f9366?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")  ;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.md-container  {
+    position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-3 {width: 25%;}
+    .col-9 {width: 75%;}
+    .hidden-md {
+        display: none;
+    }
+    .detail {
+        position: static;
+    }
+}
+
+
+
+h1{
+    text-align: center;
+    text-shadow: 2px 2px 20px #000000;
+}
+
+#form-container{
+
+    text-align: center;
+}
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1529473814998-077b4fec6770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80');
+    margin: 100px;
+}
+
+#book-bar{
+    font-family: impact;
+    color: white;
+    font-size: 55px;
+    background-color: transparent;
+    padding-top: 0;
+    text-shadow: 2px 2px 20px #000000;
+    font-family: 'Elsie';
+    
+}
+
+#search-result-title{
+    background-color: transparent;
+}
+
+form{
+    font-size: 16px;
+    font-weight: 300 ;
+    color: #333;
+    line-height: 3;
+    text-align: center;
+
+    background-color: #fff;
+    opacity: .9;
+
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+     
+    border: 1px solid #000000;
+    border-radius: 20px;
+    border-width: thin;
+     
 }
